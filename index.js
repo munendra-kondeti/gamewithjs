@@ -22,10 +22,12 @@ $(".btn").click(function () {
 function checkAnswer(currentLeverl) {
     if (gamePattern[currentLeverl] === userClickedPattern[currentLeverl]) {
         console.log("equal");
+        // if equal
         if (userClickedPattern.length === gamePattern.length) {
             setTimeout(() => gameStart(), 1000);
         }
     } else {
+        // if wrong input
         gamePattern = [];
         userClickedPattern = [];
         level = 0;
@@ -34,6 +36,7 @@ function checkAnswer(currentLeverl) {
             $("body").removeClass("game-over");
         }, 50);
         headTitleChanger("game over click any key to start");
+        playAudio("gameOver");
         started = false;
     }
 }
